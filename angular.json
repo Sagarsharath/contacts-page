@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Contact-page"
+    }
+  },
+  "defaultProject": "Contact-page",
+  "cli": {
+    "analytics": "1b74dd17-c5fd-4053-9f8e-e8da156cd38d"
+  }
 }

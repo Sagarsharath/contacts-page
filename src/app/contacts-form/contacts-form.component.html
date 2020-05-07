@@ -1,0 +1,148 @@
+<div class=" profileHead col-100 floatLft">
+    <div class="title">
+        <h1>User's Contact Profile</h1>
+    </div>
+</div>
+<div class="profileCnt col-100 floatLft">
+    <div class="profileWrap">
+        <form [formGroup]="formGroup" (ngSubmit)="showConfirmation()" class="form" *ngIf="showPage=='form'" >
+            <h2>Personal Details</h2>
+
+            <ul>
+              <li>
+                <div class="fieldDiv">
+                  <!-- <label></label> -->
+                  <div *ngIf="formGroup.status =='INVALID'">
+                    <h3 class="important-field">*Please fill mandatory details.</h3>
+                    </div>
+                </div>
+              </li>
+                <li>
+                    <label for="">Name <span class="important-field">*</span></label>
+                    <div class="fieldDiv">
+                        <input type="text" class="text"   formControlName="name"
+                            placeholder="Full Name">
+                    </div>
+                </li>
+                <li>
+                    <label for="">Role <span class="important-field">*</span></label>
+                    <div class="fieldDiv">
+                        <div class="selectWrap">
+                            <select name="role" style="background-position: 475px;"  class="custom-select" value="formGroup.controls.title.value" formControlName="title">
+                                <option value="Mr">Mr</option>
+                                <option value="Mrs">Mrs</option>
+                                <option value="Ms">Ms</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                </li>         
+                <li>
+                    <label for="">Password<span class="important-field">*</span></label>
+                    <div class="fieldDiv">
+                        <input type="password" class="text" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$"   formControlName="password"
+                            placeholder="">
+                    </div>
+                    
+                </li> 
+                <li *ngIf="formGroup.controls.password.status=='INVALID'">
+                    <label for=""><span class="important-field">Note</span></label>
+                    <div  class="important-field">(Password length should be 8 with atleast one uppercase letter, one lowercase letter, number and a special character)</div>
+                </li>     
+            </ul>
+
+            <h2>Contact Details</h2>
+            <ul>
+                <li>
+                    <label for="">Mobile Number<span class="important-field">*</span></label>
+                    <div class="fieldDiv">
+                        <input type="text" class="text"   maxlength="12" formControlName="mobile" (keydown)="formatNumber($event)"
+                            placeholder="">
+                    </div>
+                </li>       
+                <li>
+                    <label for="">E-Mail <span class="important-field">*</span></label>
+                    <div class="fieldDiv">
+                        <input type="text" class="text" formControlName="email">
+                    </div>
+                </li>
+                <li>
+                    <label class="address-label">Residential Address</label>
+                    <label class="sub-text"><input type="checkbox" formControlName="sameAddress">Same as mailing address</label>
+                </li>
+                <li>
+                    <label class="pad15">Address Line 1</label>
+                    <div class="fieldDiv">
+                        <input type="text" class="text"  formControlName="address1">
+                    </div>
+                </li>
+                <li>
+                    <label class="pad15">Address Line 2</label>
+                    <div class="fieldDiv">
+                        <input type="text" class="text"  formControlName="address2">
+                    </div>
+                </li>
+                <li>
+                    <label class="pad15">City</label>
+                    <div class="fieldDiv">
+                        <input type="text" class="text"  formControlName="city">
+                    </div>
+                </li>
+                <li>
+                    <label class="pad15">State</label>
+                    <div class="fieldDiv">
+                        <input type="text" class="text" maxlength="3"  formControlName="state">
+                    </div>
+                </li>
+                <li>
+                    <label class="pad15" maxlength="5">Postal Code</label>
+                    <div class="fieldDiv">
+                        <input type="text" class="text"  formControlName="postalCode">
+                    </div>
+                </li>
+            </ul>
+                <ul *ngIf="!formGroup.controls.sameAddress.value">
+                <li>
+                    <label class="address-label">Mailing Address</label>
+                </li>
+                <li>
+                    <label class="pad15">Address Line 1</label>
+                    <div class="fieldDiv">
+                        <input type="text" class="text"  formControlName="mailAddress1">
+                    </div>
+                </li>
+                <li>
+                    <label class="pad15">Address Line 2</label>
+                    <div class="fieldDiv">
+                        <input type="text" class="text"  formControlName="mailAddress2">
+                    </div>
+                </li>
+                <li>
+                    <label class="pad15">City</label>
+                    <div class="fieldDiv">
+                        <input type="text" class="text"  formControlName="mailCity">
+                    </div>
+                </li>
+                <li>
+                    <label class="pad15">State</label>
+                    <div class="fieldDiv">
+                        <input type="text" class="text"  formControlName="mailState">
+                    </div>
+                </li>
+                <li>
+                    <label class="pad15">Postal Code</label>
+                    <div class="fieldDiv">
+                        <input type="text" class="text"  formControlName="mailPostalCode">
+                    </div>
+                </li>
+
+            </ul>
+
+           <div class="formBtn col-100 floatLft">
+                <input type="submit" value="Save" class="subButton" [disabled]="formGroup.status=='INVALID'">
+            </div>
+        </form>
+        <app-show-details [user]="user" *ngIf="showPage=='details'"></app-show-details>
+    </div>
+</div>

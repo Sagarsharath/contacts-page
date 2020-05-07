@@ -1,0 +1,47 @@
+<div class="form">
+    <h2>Personal Details</h2>
+
+    <ul>
+        <li>
+            <label for="">Name <span class="important-field">*</span></label>
+            <div class="fieldDiv">
+              {{user.title}}  {{user.name}}
+            </div>
+        </li>  
+    </ul>
+
+    <h2>Contact Details</h2>
+    <ul>
+        <li>
+            <label for="">Mobile Number<span class="important-field">*</span></label>
+            <div class="fieldDiv">
+                {{user.mobile}}
+            </div>
+        </li> 
+        <li>
+            <label for="">E-Mail <span class="important-field">*</span></label>
+            <div class="fieldDiv">
+                {{user.email}}
+            </div>
+        </li>
+        <li>
+            <label class="address-label">Residential Address</label>           
+        </li>
+        <li>
+            <label class="pad15">Address </label>
+            <div class="fieldDiv">
+                 {{user.address1}} {{user.city}} {{user.state}}  {{user.postalCode}}
+            </div>
+        </li>
+        <li>
+            <label class="address-label">Mailing Address</label>
+        </li>
+        <li>
+            <label class="pad15">Address Line 1</label>
+            <div class="fieldDiv">
+                {{user.mailAddress1}} {{user.mailCity}} {{user.mailState}}  {{user.mailPostalCode}}
+            </div>
+        </li>
+
+    </ul>
+</div>
